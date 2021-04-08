@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tekla.Structures.Model;
 
 namespace TeklaConsole
 {
@@ -10,6 +11,8 @@ namespace TeklaConsole
     {
         static void Main(string[] args)
         {
+            Model model = new Model();
+
         }
     }
 }
