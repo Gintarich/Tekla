@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using HelperMethods;
 using Tekla.Structures;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
+using ModelObjectSelector = Tekla.Structures.Model.UI.ModelObjectSelector;
 
 namespace TeklaConsole
 {
@@ -16,19 +18,22 @@ namespace TeklaConsole
         {
             List<Identifier> idsList = new List<Identifier>();
             Model model = new Model();
+            var atverumiArray = new ArrayList();
+
             if (model.GetConnectionStatus())
             {
                 Console.WriteLine("Viss izdevas");
                 Picker picker = new Picker();
                 Part selectedObj = (Part)picker.PickObject(Picker.PickObjectEnum.PICK_ONE_PART);
                 var atverumi = selectedObj.GetBooleans();
+                
                 while (atverumi.MoveNext())
                 {
-                    var id =atverumi.Current.Identifier;
-                    idsList.Add(id);
-
-                    Console.WriteLine(id.ToString());
+                    atverumiArray.Add(atverumi.Current);
                 }
+
+                var selector = new ModelObjectSelector();
+                selector.Select(atverumiArray);
 
                 Console.ReadLine();
             }
