@@ -8,3 +8,15 @@ C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Specifikacijas\Specifikac
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\ExtensionMethods.dll
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\ExtensionMethods.pdb
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Specifikacijas\Specifikacijas.csproj.CopyComplete
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\NPOI.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\NPOI.OOXML.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\NPOI.xml
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\NPOI.OOXML.xml
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\NPOI.OpenXml4Net.xml
