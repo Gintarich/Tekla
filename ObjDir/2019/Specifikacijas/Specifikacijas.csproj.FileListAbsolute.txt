@@ -1,0 +1,10 @@
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\Specifikacijas.exe.config
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\Specifikacijas.exe
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\Specifikacijas.pdb
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Specifikacijas\Specifikacijas.csprojAssemblyReference.cache
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Specifikacijas\Specifikacijas.csproj.CoreCompileInputs.cache
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Specifikacijas\Specifikacijas.exe
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Specifikacijas\Specifikacijas.pdb
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\ExtensionMethods.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Specifikacijas\bin\Debug\ExtensionMethods.pdb
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Specifikacijas\Specifikacijas.csproj.CopyComplete
