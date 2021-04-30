@@ -107,7 +107,41 @@ namespace ExtensionMethods
             return model
                 .GetModelObjectSelector()
                 .GetObjectsByFilter(filterCollection)
-                .ToAList<Assembly>();
+                .ToAList<Assembly>()
+                ;
+        }
+        public static ModelObjectEnumerator GetAssembieNummerator(this Model model, bool autoFetch)
+        {
+            ObjectFilterExpressions.Type objectType = new ObjectFilterExpressions.Type();
+            NumericConstantFilterExpression type =
+                new NumericConstantFilterExpression(TeklaStructuresDatabaseTypeEnum.ASSEMBLY);
+
+            TemplateFilterExpressions.CustomString mainpartMaterial = new TemplateFilterExpressions.CustomString("MAINPART.MATERIAL_TYPE");
+
+            TemplateFilterExpressions.CustomString assemblyLevel = new TemplateFilterExpressions.CustomString("HIERARCHY_LEVEL");
+            StringConstantFilterExpression level = new StringConstantFilterExpression("0");
+
+            var expression2 = new BinaryFilterExpression(objectType, NumericOperatorType.IS_EQUAL, type);
+            var expression3 = new BinaryFilterExpression(mainpartMaterial, StringOperatorType.IS_EQUAL,
+                new StringConstantFilterExpression("STEEL"));
+            var expression4 = new BinaryFilterExpression(assemblyLevel, StringOperatorType.IS_EQUAL, level);
+
+
+            BinaryFilterExpressionCollection filterCollection =
+                new BinaryFilterExpressionCollection
+                {
+                    new BinaryFilterExpressionItem(expression2, BinaryFilterOperatorType.BOOLEAN_AND),
+                    new BinaryFilterExpressionItem(expression3, BinaryFilterOperatorType.BOOLEAN_AND),
+                    new BinaryFilterExpressionItem(expression4, BinaryFilterOperatorType.BOOLEAN_AND)
+                };
+
+            //IMPORTANT!!!
+            ModelObjectEnumerator.AutoFetch = autoFetch;
+
+            return model
+                    .GetModelObjectSelector()
+                    .GetObjectsByFilter(filterCollection)
+                ;
         }
 
         public static string GetStringReportProperty(this Assembly assembly, string reportProperty)
@@ -117,6 +151,21 @@ namespace ExtensionMethods
 
             return repProp;
         }
+        public static int GetIntegerReportProperty(this Assembly assembly, string reportProperty)
+        {
+            int repProp = 0;
+            assembly.GetReportProperty(reportProperty, ref repProp);
+
+            return repProp;
+        }
+        public static double GetDoubleReportProperty(this Assembly assembly, string reportProperty)
+        {
+            double repProp = 0;
+            assembly.GetReportProperty(reportProperty, ref repProp);
+
+            return repProp;
+        }
+
         public static List<ModelObject> ToList(this ModelObjectEnumerator enumerator)
         {
             var modelObjects = new List<ModelObject>();

@@ -46,5 +46,3 @@ C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole.csproj.CopyComplete
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole.exe
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole.pdb
-C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TeklaConsole\bin\Debug\HelperMethods.dll
-C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TeklaConsole\bin\Debug\HelperMethods.pdb

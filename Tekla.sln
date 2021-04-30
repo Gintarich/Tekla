@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethods", "Extensi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecifikacijasUI", "SpecifikacijasUI\SpecifikacijasUI.csproj", "{A19B457D-4051-4BC1-B490-845F24A0393C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingConsole", "TestingConsole\TestingConsole.csproj", "{D12D0A15-3553-422E-AE69-CD62F2B2374B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A19B457D-4051-4BC1-B490-845F24A0393C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A19B457D-4051-4BC1-B490-845F24A0393C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A19B457D-4051-4BC1-B490-845F24A0393C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D12D0A15-3553-422E-AE69-CD62F2B2374B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D12D0A15-3553-422E-AE69-CD62F2B2374B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D12D0A15-3553-422E-AE69-CD62F2B2374B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D12D0A15-3553-422E-AE69-CD62F2B2374B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
