@@ -1,0 +1,6 @@
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\GridTesting\GridTesting.csproj.CoreCompileInputs.cache
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\GridTesting\ConsoleApp1.exe
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\GridTesting\ConsoleApp1.pdb

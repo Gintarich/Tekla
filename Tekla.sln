@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecifikacijasUI", "Specifi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingConsole", "TestingConsole\TestingConsole.csproj", "{D12D0A15-3553-422E-AE69-CD62F2B2374B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridTesting", "ConsoleApp1\GridTesting.csproj", "{665F1BA7-1F08-4560-AAA1-0D2F5B7CEE55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D12D0A15-3553-422E-AE69-CD62F2B2374B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D12D0A15-3553-422E-AE69-CD62F2B2374B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D12D0A15-3553-422E-AE69-CD62F2B2374B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665F1BA7-1F08-4560-AAA1-0D2F5B7CEE55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665F1BA7-1F08-4560-AAA1-0D2F5B7CEE55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665F1BA7-1F08-4560-AAA1-0D2F5B7CEE55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665F1BA7-1F08-4560-AAA1-0D2F5B7CEE55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

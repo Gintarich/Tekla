@@ -29,7 +29,6 @@ namespace ExtensionMethods
 
             return parts;
         }
-
         public static List<T> ToAList<T>(this IEnumerator enumerator)
         {
             var list = new List<T>();
@@ -42,6 +41,7 @@ namespace ExtensionMethods
             return list;
         }
 
+        //Filter properties --------------------------------------------------
         public static List<Part> GetParts(this Model model, bool autoFetch)
         {
             ObjectFilterExpressions.Type objectType = new ObjectFilterExpressions.Type();
@@ -144,6 +144,7 @@ namespace ExtensionMethods
                 ;
         }
 
+        
         public static string GetStringReportProperty(this Assembly assembly, string reportProperty)
         {
             string repProp = string.Empty;
@@ -165,6 +166,7 @@ namespace ExtensionMethods
 
             return repProp;
         }
+
 
         public static List<ModelObject> ToList(this ModelObjectEnumerator enumerator)
         {

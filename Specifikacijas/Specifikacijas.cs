@@ -19,22 +19,35 @@ namespace Specifikacijas
         static void Main(string[] args)
         {
             Model model = new Model();
+
+            //Tērauda specifikācijas
             List<TeraudaElements> teraudaElementi = new List<TeraudaElements>();
             var assemblies = model.GetAssembies(true);
+
+            var groups =assemblies.GroupBy(
+                x => x.GetStringReportProperty("ASSEMBLY_POS")
+            ).ToList();
+
+            groups.EksportetTeraudaSpecifikacijas(model);
+
+
+
+
+
+
+
+
+
+
+
+
 
             // var assNum = model.GetAssembieNummerator(true);
             // while (assNum.MoveNext())
             // {
             //     TeraudaElements tel = new TeraudaElements(assNum.Current as Assembly);
             // }
-
-            var groups =assemblies.GroupBy(
-                x => x.GetStringReportProperty("ASSEMBLY_POS")
-            ).ToList();
-
-
-            groups.EksportetTeraudaSpecifikacijas(model);
         }
-       
+
     }
 }
