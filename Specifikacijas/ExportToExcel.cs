@@ -16,7 +16,7 @@ namespace Specifikacijas
 {
     public static class ExportToExcel
     {
-        public static void EksportetTeraudaSpecifikacijas(this List<IGrouping<string, Assembly>> groupings,Model model)
+        public static void EksportetTeraudaSpecifikacijas(this List<IGrouping<string, Assembly>> groupings, Model model)
         {
 
             IWorkbook wb = new XSSFWorkbook();
@@ -63,6 +63,21 @@ namespace Specifikacijas
             regularFont.FontHeightInPoints = 11;
             regularstyle.SetFont(regularFont);
 
+            var regularstyle2 = wb.CreateCellStyle();
+            var regularFont2 = wb.CreateFont();
+            regularFont2.IsBold = false;
+            regularFont2.FontName = "Arial";
+            regularFont2.FontHeightInPoints = 11;
+            regularstyle2.SetFont(regularFont2);
+            regularstyle2.Alignment = HorizontalAlignment.Center;
+
+            var regularstyle3 = wb.CreateCellStyle();
+            var regularFont3 = wb.CreateFont();
+            regularFont3.IsBold = false;
+            regularFont3.FontName = "Arial";
+            regularFont3.FontHeightInPoints = 11;
+            regularstyle3.SetFont(regularFont2);
+
             var boldStyle = wb.CreateCellStyle();
             var boldFont = wb.CreateFont();
             boldStyle.Alignment = HorizontalAlignment.Right;
@@ -74,6 +89,7 @@ namespace Specifikacijas
             #endregion
 
             #region ObjectDataRows
+
             dateRow.CreateCell(8).SetCellValue("Datums:");
             dateRow.GetCell(8).CellStyle = titleStyle;
             dateRow.CreateCell(9).SetCellValue(DateTime.Now.ToString("dd.MM.yyyy"));
@@ -81,20 +97,20 @@ namespace Specifikacijas
 
             s1.AddMergedRegion(new CellRangeAddress(1, 1, 0, 9));
             var mycell = objectRow.CreateCell(0);
-            mycell.SetCellValue("OBJEKTS:"+objectName);
+            mycell.SetCellValue("OBJEKTS:" + objectName);
             mycell.CellStyle = boldStyle;
 
             s1.AddMergedRegion(new CellRangeAddress(2, 2, 0, 9));
             var titleCell = titleRow.CreateCell(0);
             titleCell.SetCellValue("TĒRAUDA ELEMENTU SPECIFIKĀCIJA");
             titleCell.CellStyle = titleStyle2;
-            
+
             #endregion
 
-            #region HeaderRow
+            #region HeaderRow----------------------------------------------------------------------
 
             headerRow.HeightInPoints = 31;
-            s1.SetColumnWidth(0,3400); //A
+            s1.SetColumnWidth(0, 3400); //A
             s1.SetColumnWidth(1, 5900); //B
             s1.SetColumnWidth(2, 2200); //C
             s1.SetColumnWidth(3, 3264); //D
@@ -123,54 +139,78 @@ namespace Specifikacijas
 
             #endregion
 
-            #region DataRows
+            #region DataRows-----------------------------------------------------------------------
 
-            var myrow = 4;
+            int startingRow = 4;
+            var myrow = startingRow;
             foreach (var group in groupings)
             {
-                ArrayList myList = new ArrayList();
-                string elementaMarka = group.First().GetStringReportProperty("ASSEMBLY_POS");
-                myList.Add(elementaMarka);
-                string elementaNosaukums = group.First().Name;
-                myList.Add(elementaNosaukums);
-                var elementuskaits = group.Count();
-                myList.Add(elementuskaits);
-                var profils = group.First().GetStringReportProperty("MAINPART.PROFILE");
-                myList.Add(profils);
-                var gar1el = group.First().GetDoubleReportProperty("LENGTH");
-                myList.Add(Math.Round(gar1el, 2));
-                var sv1el = group.First().GetDoubleReportProperty("WEIGHT");
-                myList.Add(Math.Round(sv1el, 2));
-                var lauk1el = group.First().GetDoubleReportProperty("AREA")/1000000;
-                myList.Add(Math.Round(lauk1el, 2));
-                var svkopa = group.Sum(x => x.GetDoubleReportProperty("WEIGHT"));
-                myList.Add(Math.Round(svkopa, 2));
-                var laukumskopa = group.Sum(x => x.GetDoubleReportProperty("AREA")/1000000);
-                myList.Add(Math.Round(laukumskopa, 2));
-
                 //Generate row
                 IRow row = s1.CreateRow(myrow);
-                row.CreateCell(0).SetCellValue(myList[0] as string);  //A2
-                row.CreateCell(1).SetCellValue(myList[1] as string);   //B2
-                row.CreateCell(2).SetCellValue((int)myList[2]);   //C2
-                row.CreateCell(3).SetCellValue(myList[3] as string);
-                row.CreateCell(4).SetCellValue((double)myList[4]);
-                row.CreateCell(5).SetCellValue((double)myList[5]);
-                row.CreateCell(6).SetCellValue((double)myList[6]);
-                row.CreateCell(7).SetCellValue((double)myList[7]);
-                row.CreateCell(8).SetCellValue((double)myList[8]);
+                row.CreateCell(0).SetCellValue(group.First().GetStringReportProperty("ASSEMBLY_POS")); //A2
+                row.CreateCell(1).SetCellValue(group.First().Name); //B2
+                row.CreateCell(2).SetCellValue(group.Count()); //C2
+                row.CreateCell(3).SetCellValue(group.First().GetStringReportProperty("MAINPART.PROFILE"));
+                row.CreateCell(4).SetCellValue(Math.Round(group.First().GetDoubleReportProperty("LENGTH"), 2));
+                row.CreateCell(5).SetCellValue(Math.Round(group.First().GetDoubleReportProperty("WEIGHT"), 2));
+                row.CreateCell(6).SetCellValue(Math.Round(group.First().GetDoubleReportProperty("AREA") / 1000000, 2));
+                row.CreateCell(7).SetCellValue(Math.Round(group.Sum(x => x.GetDoubleReportProperty("WEIGHT")), 2));
+                row.CreateCell(8)
+                    .SetCellValue(Math.Round(group.Sum(x => x.GetDoubleReportProperty("AREA") / 1000000), 2));
                 row.CreateCell(9).SetCellValue("");
 
                 for (int i = 0; i < 10; i++)
                 {
                     row.GetCell(i).CellStyle = regularstyle;
                 }
+
                 myrow++;
             }
 
+            #endregion
 
+            #region BottomPart---------------------------------------------------------------------
+
+            var totalRow = s1.CreateRow(myrow);
+
+            string fmla = "SUM(H" + (startingRow + 1) + ":H" + myrow + ")";
+            totalRow.CreateCell(7).SetCellFormula(fmla);
+            totalRow.CreateCell(8).SetCellFormula("SUM(I" + (startingRow + 1) + ":I" + myrow + ")");
+            totalRow.GetCell(7).CellStyle = regularstyle2;
+            totalRow.GetCell(8).CellStyle = regularstyle2;
+            myrow++;
+            var papilduRinda = s1.CreateRow(myrow);
+            string str = "Apjomos papildus ievērtēt 5% fasonlapu un papildus detaļu izgatavošanai (kg)";
+            papilduRinda.CreateCell(0).SetCellValue(str);
+            papilduRinda.GetCell(0).CellStyle = regularstyle3;
+            papilduRinda.CreateCell(7).SetCellFormula("H" + (myrow) + "*0.05");
+            papilduRinda.GetCell(7).CellStyle = regularstyle2;
+            myrow++;
+            var kopejaRinda = s1.CreateRow(myrow);
+            kopejaRinda.CreateCell(6).SetCellValue("Kopā(kg):");
+            kopejaRinda.GetCell(6).CellStyle = titleStyle2;
+            var fmla2 = "SUM(H" + (myrow - 1) + ":H" + myrow + ")";
+            kopejaRinda.CreateCell(7).SetCellFormula(fmla2);
+            kopejaRinda.GetCell(7).CellStyle = titleStyle2;
+            myrow++;
 
             #endregion
+
+            #region Footer
+
+            string[] myStrArray =
+            {
+                "MATERIĀLU APJOMOS NAV IEVĒRTĒTS:",
+                "1) Materiālu zudumi, kas rodas būvniecības tehnoloģisko procesu rezultātā;",
+                "2) Iebetonējamo detaļu apjomi;",
+                "3) Skrūvju apjomi;",
+                "4) Metinājuma šuvju apjomi;",
+                "5) Kāpņu margu, pakāpienu un kāpņu laukumu režģu apjomi;",
+                "6) Papildus metāla elementu apjomi, kas nepieciešami inženieriekārtām un ailu aizpildījuma elementiem, ko nosaka katra ražotāja specifikācija;"
+            };
+            var test123 =myStrArray[0];
+            #endregion
+
 
             string mystring = @"Test123".SetFolderPath(model);
 
