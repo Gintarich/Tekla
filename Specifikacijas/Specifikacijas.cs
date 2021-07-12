@@ -32,6 +32,9 @@ namespace Specifikacijas
                 // todo Workbook add Monolītā dzelzsbetona specifikācijas
                 EksportetMonolitaDzelzsbetonaSpecifikacijas(workbook, model);
 
+                // todo Workbook add Saliekamā dzelzsbetona specifikācijas
+                var styles = CreateStyles(workbook);
+                ICellStyle test = styles[""];
                 // todo Workbook add Mūra speciofikācijas
                 EksportetMuraSpecifikacijas(workbook,model);
             }
