@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Collections;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ExtensionMethods;
+using NPOI.HSSF.UserModel;
 using NPOI.SS.Formula.Functions;
 using NPOI.SS.UserModel;
 using NPOI.SS.Util;
@@ -219,6 +218,21 @@ namespace Specifikacijas
             FileStream fs = File.Create(mystring);
             wb.Write(fs);
             fs.Close();
+        }
+
+        public static void EksportetTeraudaSpecifikacijas1()
+        {
+            
+        }
+
+        public static IWorkbook InitializeWorkbook(string[] args)
+        {
+            IWorkbook workbook;
+            if (args.Length > 0 && args[0].Equals("-xls"))
+                workbook = new HSSFWorkbook();
+            else
+                workbook = new XSSFWorkbook();
+            return workbook;
         }
     }
 }

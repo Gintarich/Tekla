@@ -15,7 +15,6 @@ namespace Specifikacijas.Clases
         {
             
         }
-
         public TeraudaElements(Assembly assembly)
         {
             ElementaMarka = assembly.GetStringReportProperty("ASSEMBLY_POS");
