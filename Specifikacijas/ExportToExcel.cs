@@ -10,11 +10,13 @@ using NPOI.SS.UserModel;
 using NPOI.SS.Util;
 using NPOI.XSSF.UserModel;
 using Tekla.Structures.Model;
+using static Specifikacijas.NPOI_Helpers.NpoiStaticHelperMethods;
 
 namespace Specifikacijas
 {
     public static class ExportToExcel
     {
+        /*
         public static void EksportetTeraudaSpecifikacijas(this List<IGrouping<string, Assembly>> groupings, Model model)
         {
 
@@ -219,20 +221,18 @@ namespace Specifikacijas
             wb.Write(fs);
             fs.Close();
         }
-
-        public static void EksportetTeraudaSpecifikacijas1()
+        */
+        public static void EksportetTeraudaSpecifikacijas(IWorkbook wb, Model model)
         {
             
         }
-
-        public static IWorkbook InitializeWorkbook(string[] args)
+        public static void EksportetMonolitaDzelzsbetonaSpecifikacijas(IWorkbook wb, Model model)
         {
-            IWorkbook workbook;
-            if (args.Length > 0 && args[0].Equals("-xls"))
-                workbook = new HSSFWorkbook();
-            else
-                workbook = new XSSFWorkbook();
-            return workbook;
+
+        }
+        public static void EksportetMuraSpecifikacijas(IWorkbook wb, Model model)
+        {
+
         }
     }
 }

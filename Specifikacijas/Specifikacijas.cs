@@ -9,6 +9,8 @@ using NPOI;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using Specifikacijas.Clases;
+using static Specifikacijas.NPOI_Helpers.NpoiStaticHelperMethods;
+using static Specifikacijas.ExportToExcel;
 
 namespace Specifikacijas
 {
@@ -17,24 +19,25 @@ namespace Specifikacijas
         static void Main(string[] args)
         {
             //Setting up new workbook
-            var workbook = ExportToExcel.InitializeWorkbook(args);
+            var workbook = InitializeWorkbook(args);
             //Setting connection with tekla structures model
             Model model = new Model();
+
             //Testing if tekla model is open
             if (model.GetConnectionStatus())
             {
-
                 // todo Workbook add Tērauda specifikācijas
+                EksportetTeraudaSpecifikacijas(workbook,model);
 
                 // todo Workbook add Monolītā dzelzsbetona specifikācijas
+                EksportetMonolitaDzelzsbetonaSpecifikacijas(workbook, model);
 
                 // todo Workbook add Mūra speciofikācijas
-
-                //
+                EksportetMuraSpecifikacijas(workbook,model);
             }
 
 
-
+            /*
             //Tērauda specifikācijas
             List<TeraudaElements> teraudaElementi = new List<TeraudaElements>();
             var assemblies = model.GetAssembies(true);
@@ -52,6 +55,7 @@ namespace Specifikacijas
             // {
             //     TeraudaElements tel = new TeraudaElements(assNum.Current as Assembly);
             // }
+            */
         }
 
     }
