@@ -1,0 +1,7 @@
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Rezgogi\bin\Debug\Rezgogi.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Rezgogi\bin\Debug\Rezgogi.pdb
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Rezgogi\Rezgogi.MainForm.resources
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Rezgogi\Rezgogi.csproj.GenerateResource.cache
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Rezgogi\Rezgogi.csproj.CoreCompileInputs.cache
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Rezgogi\Rezgogi.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Rezgogi\Rezgogi.pdb

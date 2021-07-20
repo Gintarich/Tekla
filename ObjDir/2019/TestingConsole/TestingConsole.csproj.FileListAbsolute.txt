@@ -1,7 +1,6 @@
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TestingConsole\bin\Debug\TestingConsole.exe.config
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TestingConsole\bin\Debug\TestingConsole.exe
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TestingConsole\bin\Debug\TestingConsole.pdb
-C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TestingConsole\TestingConsole.csprojAssemblyReference.cache
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TestingConsole\TestingConsole.csproj.CoreCompileInputs.cache
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TestingConsole\TestingConsole.exe
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TestingConsole\TestingConsole.pdb

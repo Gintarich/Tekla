@@ -1,0 +1,10 @@
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Foundation\bin\Debug\Foundation.exe.config
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Foundation\bin\Debug\Foundation.exe
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Foundation\bin\Debug\Foundation.pdb
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Foundation\bin\Debug\ExtensionMethods.dll
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\Foundation\bin\Debug\ExtensionMethods.pdb
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Foundation\Foundation.csproj.AssemblyReference.cache
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Foundation\Foundation.csproj.CoreCompileInputs.cache
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Foundation\Foundation.csproj.CopyComplete
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Foundation\Foundation.exe
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\Foundation\Foundation.pdb
