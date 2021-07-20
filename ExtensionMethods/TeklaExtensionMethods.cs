@@ -8,6 +8,7 @@ using Tekla.Structures;
 using Tekla.Structures.Filtering;
 using Tekla.Structures.Filtering.Categories;
 using Tekla.Structures.Model;
+using Tekla.Structures.Model.UI;
 
 namespace ExtensionMethods
 {
@@ -192,6 +193,27 @@ namespace ExtensionMethods
 
             var selector = new Tekla.Structures.Model.UI.ModelObjectSelector();
             selector.Select(modelObjects);
+        }
+        public static List<ModelObject> PickMultipleObjects(this Model model)
+        {
+            ModelObjectEnumerator.AutoFetch = true;
+
+            try
+            {
+                var p = new Picker();
+                var picked =
+                    p.PickObjects(Picker.PickObjectsEnum.PICK_N_OBJECTS,
+                            "Pick objects (single or multiple)")
+                        .ToAList<ModelObject>();
+                return
+                    picked.GroupBy(c => c.Identifier.ID)
+                        .Select(g => g.FirstOrDefault())
+                        .ToList();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
     }
