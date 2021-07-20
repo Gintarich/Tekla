@@ -41,7 +41,7 @@ C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TeklaConsole\bin\Debug\Tekla.Technolo
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TeklaConsole\bin\Debug\Tekla.Technology.Serialization.dll
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TeklaConsole\bin\Debug\Tekla.Technology.Scripting.dll
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\TeklaConsole\bin\Debug\Tekla.Technology.Scripting.Plugins.dll
-C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole.csprojAssemblyReference.cache
+C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole.csproj.AssemblyReference.cache
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole.csproj.CoreCompileInputs.cache
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole.csproj.CopyComplete
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\TeklaConsole\TeklaConsole.exe
