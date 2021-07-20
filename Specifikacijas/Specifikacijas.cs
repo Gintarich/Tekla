@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,18 +31,8 @@ namespace Specifikacijas
 
             groups.EksportetTeraudaSpecifikacijas(model);
 
-
-
-
-
-
-
-
-
-
-
-
-
+            Process.Start(model.GetMyFolderPath());
+            
             // var assNum = model.GetAssembieNummerator(true);
             // while (assNum.MoveNext())
             // {

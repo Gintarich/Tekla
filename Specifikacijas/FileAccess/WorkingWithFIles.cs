@@ -26,5 +26,13 @@ namespace Specifikacijas
             */
             return myFilePath;
         }
-	}
+        public static string GetMyFolderPath(this Model _model)
+        {
+            var modelpath = _model.GetInfo().ModelPath;
+            var araPath = Path.GetFullPath(Path.Combine(modelpath, @"..\..\"));
+            var specPath = Path.Combine(araPath, @"1_BK sadala\5_Specifikacijas\");
+
+            return specPath;
+        }
+    }
 }
