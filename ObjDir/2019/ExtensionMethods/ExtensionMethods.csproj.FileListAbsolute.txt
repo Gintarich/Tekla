@@ -11,3 +11,9 @@ C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\ExtensionMethods\Extensio
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\ExtensionMethods\ExtensionMethods.csproj.CoreCompileInputs.cache
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\ExtensionMethods\ExtensionMethods.dll
 C:\Users\NR9-VV\source\repos\C_Sharp\Tekla\ObjDir\2019\ExtensionMethods\ExtensionMethods.pdb
+C:\Users\NR9-GB\Source\Repos\Gintarich\Tekla\ExtensionMethods\bin\Debug\ExtensionMethods.dll
+C:\Users\NR9-GB\Source\Repos\Gintarich\Tekla\ExtensionMethods\bin\Debug\ExtensionMethods.pdb
+C:\Users\NR9-GB\Source\Repos\Gintarich\Tekla\ObjDir\2019\ExtensionMethods\ExtensionMethods.csproj.AssemblyReference.cache
+C:\Users\NR9-GB\Source\Repos\Gintarich\Tekla\ObjDir\2019\ExtensionMethods\ExtensionMethods.csproj.CoreCompileInputs.cache
+C:\Users\NR9-GB\Source\Repos\Gintarich\Tekla\ObjDir\2019\ExtensionMethods\ExtensionMethods.dll
+C:\Users\NR9-GB\Source\Repos\Gintarich\Tekla\ObjDir\2019\ExtensionMethods\ExtensionMethods.pdb

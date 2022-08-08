@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30621.155
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeklaConsole", "TeklaConsole\TeklaConsole.csproj", "{ED6730AC-3AD2-4DE4-892D-DD2C3D86B61D}"
 EndProject
@@ -16,8 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridTesting", "ConsoleApp1\GridTesting.csproj", "{665F1BA7-1F08-4560-AAA1-0D2F5B7CEE55}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes", "Notes\Notes.csproj", "{DB65F658-E065-425C-89CC-D57AAF90DBAE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundation", "Foundation\Foundation.csproj", "{1298F092-831C-43EA-94F4-6743CD21A318}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rezgogi", "Rezgogi\Rezgogi.csproj", "{F99F05EA-569D-4181-8029-D02DAF5291C6}"
 EndProject
@@ -55,10 +53,6 @@ Global
 		{DB65F658-E065-425C-89CC-D57AAF90DBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB65F658-E065-425C-89CC-D57AAF90DBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB65F658-E065-425C-89CC-D57AAF90DBAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1298F092-831C-43EA-94F4-6743CD21A318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1298F092-831C-43EA-94F4-6743CD21A318}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1298F092-831C-43EA-94F4-6743CD21A318}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1298F092-831C-43EA-94F4-6743CD21A318}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F99F05EA-569D-4181-8029-D02DAF5291C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F99F05EA-569D-4181-8029-D02DAF5291C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F99F05EA-569D-4181-8029-D02DAF5291C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
