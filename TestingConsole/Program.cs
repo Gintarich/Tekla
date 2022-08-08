@@ -9,7 +9,7 @@ namespace TestingConsole
         static void Main(string[] args)
         {
             var mypath =
-                @"Z:\DARBS\2021\PROJEKTI\ARA_2021_L07_BK_GRAUD_KS_TERMIN_ZILA_22_MM_JURIS_DS\3_KONSTRUKCIJAS\3_Teklas modeli\2021.03.30_Graudu_angars_no_GH\PlotFiles\TEST.xsr";
+                @"\\192.168.10.9\Darbs\DARBS\2022\PROJEKTI\ARA_2022_L07_BK_EVOPIPES_A_V_DS\3_KONSTRUKCIJAS\3_Teklas modeli\2022.07.18_ARA_2022_L07_BK_EVOPIPES\PlotFiles\TEST.xsr";
             Operation.CreateReportFromAll("ARA_ASSEMBLY_KOPEJA_SPEC", mypath, "MyTitle", "", "");
 
             if (File.Exists(mypath))
