@@ -16,8 +16,9 @@ namespace Specifikacijas
 {
     public static class ExportToExcel
     {
-        /*
-        public static void EksportetTeraudaSpecifikacijas(this List<IGrouping<string, Assembly>> groupings, Model model)
+        
+        public static void EksportetTeraudaSpecifikacijas(this List<IGrouping<string, 
+            Assembly>> groupings, Model model)
         {
 
             IWorkbook wb = new XSSFWorkbook();
@@ -221,7 +222,7 @@ namespace Specifikacijas
             wb.Write(fs);
             fs.Close();
         }
-        */
+        
         public static void EksportetTeraudaSpecifikacijas(IWorkbook wb, Model model)
         {
             

@@ -18,30 +18,32 @@ namespace Specifikacijas
     {
         static void Main(string[] args)
         {
-            //Setting up new workbook
-            var workbook = InitializeWorkbook(args);
-            //Setting connection with tekla structures model
+            ////Setting up new workbook
+            //var workbook = InitializeWorkbook(args);
+            ////Setting connection with tekla structures model
+            //Model model = new Model();
+
+            ////Testing if tekla model is open
+            //if (model.GetConnectionStatus())
+            //{
+            //    // todo Workbook add Tērauda specifikācijas
+            //    EksportetTeraudaSpecifikacijas(workbook,model);
+
+            //    // todo Workbook add Monolītā dzelzsbetona specifikācijas
+            //    EksportetMonolitaDzelzsbetonaSpecifikacijas(workbook, model);
+
+            //    // todo Workbook add Saliekamā dzelzsbetona specifikācijas
+            //    var styles = CreateStyles(workbook);
+            //    ICellStyle test = styles[""];
+            //    // todo Workbook add Mūra speciofikācijas
+            //    EksportetMuraSpecifikacijas(workbook,model);
+            //}
+
+
+
+            //Tērauda specifikācijas
             Model model = new Model();
 
-            //Testing if tekla model is open
-            if (model.GetConnectionStatus())
-            {
-                // todo Workbook add Tērauda specifikācijas
-                EksportetTeraudaSpecifikacijas(workbook,model);
-
-                // todo Workbook add Monolītā dzelzsbetona specifikācijas
-                EksportetMonolitaDzelzsbetonaSpecifikacijas(workbook, model);
-
-                // todo Workbook add Saliekamā dzelzsbetona specifikācijas
-                var styles = CreateStyles(workbook);
-                ICellStyle test = styles[""];
-                // todo Workbook add Mūra speciofikācijas
-                EksportetMuraSpecifikacijas(workbook,model);
-            }
-
-
-            /*
-            //Tērauda specifikācijas
             List<TeraudaElements> teraudaElementi = new List<TeraudaElements>();
             var assemblies = model.GetAssembies(true);
 
@@ -58,7 +60,7 @@ namespace Specifikacijas
             // {
             //     TeraudaElements tel = new TeraudaElements(assNum.Current as Assembly);
             // }
-            */
+            
         }
 
     }
