@@ -15,27 +15,6 @@ namespace TeklaConsole
     {
         static void Main(string[] args)
         {
-            List<Identifier> idsList = new List<Identifier>();
-            Model model = new Model();
-            var atverumiArray = new ArrayList();
-
-            if (model.GetConnectionStatus())
-            {
-                Console.WriteLine("Viss izdevas");
-                Picker picker = new Picker();
-                Part selectedObj = (Part)picker.PickObject(Picker.PickObjectEnum.PICK_ONE_PART);
-                var atverumi = selectedObj.GetBooleans();
-                
-                while (atverumi.MoveNext())
-                {
-                    atverumiArray.Add(atverumi.Current);
-                }
-
-                var selector = new ModelObjectSelector();
-                selector.Select(atverumiArray);
-
-                Console.ReadLine();
-            }
         }
     }
 }

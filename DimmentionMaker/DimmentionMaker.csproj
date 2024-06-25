@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DB65F658-E065-425C-89CC-D57AAF90DBAE}</ProjectGuid>
+    <ProjectGuid>{1B48C65C-8A7A-419C-AD11-893324FFA5E8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Notes</RootNamespace>
-    <AssemblyName>Notes</AssemblyName>
+    <RootNamespace>DimmentionMaker</RootNamespace>
+    <AssemblyName>DimmentionMaker</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,9 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

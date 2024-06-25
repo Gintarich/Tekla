@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notes
+namespace ExtensionMethods
 {
-    class Program
+    internal class GemetryExtensions
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

@@ -1,3 +1,0 @@
-﻿1)Atrast/Salīdzināt ar maksimālovērtību(beams=List<Beam>, vajag pievienot using System.Linq):
-	///beams.Max(beam => beam.StartPoint.Y)
-2)

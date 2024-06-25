@@ -8,8 +8,11 @@ namespace TestingConsole
     {
         static void Main(string[] args)
         {
-            var mypath =
-                @"\\192.168.10.9\Darbs\DARBS\2022\PROJEKTI\ARA_2022_L07_BK_EVOPIPES_A_V_DS\3_KONSTRUKCIJAS\3_Teklas modeli\2022.07.18_ARA_2022_L07_BK_EVOPIPES\PlotFiles\TEST.xsr";
+        }
+        public static void DisplayReport(string path)
+        {
+
+            var mypath = path;
             Operation.CreateReportFromAll("ARA_ASSEMBLY_KOPEJA_SPEC", mypath, "MyTitle", "", "");
 
             if (File.Exists(mypath))
