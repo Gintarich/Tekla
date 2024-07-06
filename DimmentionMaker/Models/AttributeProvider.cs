@@ -11,6 +11,14 @@ namespace DimmentionMaker.Models
 {
     public static class AttributeProvider
     {
+        public static DimAtr GetAttribute( ModelObject mo)
+        {
+            var attr = new DimAtr(mo);
+            var font = attr.Text.Font;
+            var udel = new UserDefinedElement("NAME");
+            udel.Font = font;   
+            return attr;
+        }
         public static DimAtr GetLeftMarkAttributes(Tekla.Structures.Drawing.ModelObject mo)
         {
             var attr = new DimAtr(mo);

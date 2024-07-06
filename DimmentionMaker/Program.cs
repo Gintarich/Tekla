@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Drawing;
 using ExtensionMethods;
+using Tekla.Structures.Model;
 
 namespace DimmentionMaker
 {
