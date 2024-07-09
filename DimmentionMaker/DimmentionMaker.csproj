@@ -65,21 +65,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddChamferMarkCommand.cs" />
     <Compile Include="Commands\AddDimmensionCommand.cs" />
     <Compile Include="Commands\AddOverallDimCommand.cs" />
     <Compile Include="Commands\AddOverallBottomDimCommand.cs" />
-    <Compile Include="Commands\ClearDimmensionsCommand.cs" />
+    <Compile Include="Commands\ClearDimmensionsAndTextCommand.cs" />
+    <Compile Include="Commands\GeometrySectionCreationCommand.cs" />
+    <Compile Include="Creators\ChamferCommandCreator.cs" />
     <Compile Include="Creators\EmbedDimmensionCommandCreator.cs" />
-    <Compile Include="Creators\FrontViewCommandCreator.cs" />
+    <Compile Include="Managers\FrontViewAnotationManager.cs" />
     <Compile Include="Commands\ResetCoordinateSystemCommand.cs" />
     <Compile Include="Creators\OpeningCommandCreator.cs" />
     <Compile Include="Interfaces\ICommandCreator.cs" />
-    <Compile Include="Interfaces\IDimmensionCommand.cs" />
+    <Compile Include="Interfaces\IDrawingCommand.cs" />
+    <Compile Include="Interfaces\IViewManager.cs" />
+    <Compile Include="Creators\GeometrySectionCreator.cs" />
+    <Compile Include="Managers\GeometrySectionCreationManager.cs" />
+    <Compile Include="Managers\TieBeamDrawingManager.cs" />
+    <Compile Include="Interfaces\IDrawingManager.cs" />
     <Compile Include="Models\AttributeProvider.cs" />
-    <Compile Include="Models\DimmensionCommandQueue.cs" />
-    <Compile Include="Models\DimmensionLineCreator.cs" />
+    <Compile Include="Models\CommandQueue.cs" />
+    <Compile Include="Models\CommandExecutor.cs" />
     <Compile Include="Models\Dirrections.cs" />
     <Compile Include="Models\FileGenerator.cs" />
+    <Compile Include="Interfaces\ICommandQueue.cs" />
     <Compile Include="Models\Utils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,37 +5,37 @@ namespace DimmentionMaker
 {
     public static class Utils
     {
-        public static DimmensionCommandType GetDimCommandTypeFromDir(Vector dir)
+        public static CommandType GetDimCommandTypeFromDir(Vector dir)
         {
             if (dir == Dirrections.Left)
             {
-                return DimmensionCommandType.LeftDimmension;
+                return CommandType.LeftDimmension;
             }
             else if (dir == Dirrections.Right)
             {
-                return DimmensionCommandType.RightDimmension;
+                return CommandType.RightDimmension;
             }
             else if (dir == Dirrections.Top)
             {
-                return DimmensionCommandType.TopDimmension;
+                return CommandType.TopDimmension;
             }
             else if (dir == Dirrections.Bottom)
             {
-                return DimmensionCommandType.BottomDimmension;
+                return CommandType.BottomDimmension;
             }
             else
             {
-                return DimmensionCommandType.NotADimmension;
+                return CommandType.NotADimmension;
             }
         }
-        public static Vector GetVector(this DimmensionCommandType commandType)
+        public static Vector GetVector(this CommandType commandType)
         {
             switch (commandType)
             {
-                case DimmensionCommandType.TopDimmension: return Dirrections.Top;
-                case DimmensionCommandType.BottomDimmension: return Dirrections.Bottom;
-                case DimmensionCommandType.LeftDimmension: return Dirrections.Left;
-                case DimmensionCommandType.RightDimmension: return Dirrections.Right;
+                case CommandType.TopDimmension: return Dirrections.Top;
+                case CommandType.BottomDimmension: return Dirrections.Bottom;
+                case CommandType.LeftDimmension: return Dirrections.Left;
+                case CommandType.RightDimmension: return Dirrections.Right;
                 default: return null;
             }
         }

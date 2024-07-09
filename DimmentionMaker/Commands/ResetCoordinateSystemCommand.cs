@@ -8,7 +8,7 @@ using Tekla.Structures.Model;
 
 namespace DimmentionMaker.Commands
 {
-    public class ResetCoordinateSystemCommand : IDimmensionCommand
+    public class ResetCoordinateSystemCommand : IDrawingCommand
     {
         private Drawing _drawing;
         private TransformationPlane _transformationPlane;
@@ -22,9 +22,9 @@ namespace DimmentionMaker.Commands
             _drawing.CommitChanges();
             new Model().GetWorkPlaneHandler().SetCurrentTransformationPlane(_transformationPlane);
         }
-        public DimmensionCommandType GetCommandType()
+        public CommandType GetCommandType()
         {
-            return DimmensionCommandType.NotADimmension;
+            return CommandType.NotADimmension;
         }
 
         public int GetImportance()

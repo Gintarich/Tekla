@@ -21,7 +21,7 @@ namespace DimmentionMaker.Creators
         private Assembly _assembly;
         private View _view;
         private AABB _aabb;
-        private List<IDimmensionCommand> _commandList = new List<IDimmensionCommand>();
+        private List<IDrawingCommand> _commandList = new List<IDrawingCommand>();
 
         public EmbedDimmensionCommandCreator(Assembly assembly, View view)
         {
@@ -36,7 +36,7 @@ namespace DimmentionMaker.Creators
             _aabb = _assembly.GetBox();
         }
 
-        public List<IDimmensionCommand> GetCommands() { return _commandList; }
+        public List<IDrawingCommand> GetCommands() { return _commandList; }
 
         public void CreateCommands()
         {
@@ -54,16 +54,16 @@ namespace DimmentionMaker.Creators
                 var cl = (group.First().GetMainPart() as Part).Class;
                 var topPoints = group.ToList().GetPoints(_aabb, Dirrections.Top, name);
                 if (topPoints.Count > 2)
-                    _commandList.Add(new AddDimmensionCommand(topPoints, _view, DimmensionCommandType.TopDimmension, leftAttr));
+                    _commandList.Add(new AddDimmensionCommand(topPoints, _view, CommandType.TopDimmension, leftAttr));
                 var botPoints = group.ToList().GetPoints(_aabb, Dirrections.Bottom, name);
                 if (botPoints.Count > 2 && cl == "100")
-                    _commandList.Add(new AddDimmensionCommand(botPoints, _view, DimmensionCommandType.BottomDimmension, rightAttr));
+                    _commandList.Add(new AddDimmensionCommand(botPoints, _view, CommandType.BottomDimmension, rightAttr));
                 var leftPoints = group.ToList().GetPoints(_aabb, Dirrections.Left, name);
                 if (leftPoints.Count > 2 && cl == "100")
-                    _commandList.Add(new AddDimmensionCommand(leftPoints, _view, DimmensionCommandType.LeftDimmension, leftAttr));
+                    _commandList.Add(new AddDimmensionCommand(leftPoints, _view, CommandType.LeftDimmension, leftAttr));
                 var rightPoints = group.ToList().GetPoints(_aabb, Dirrections.Right, name);
                 if (rightPoints.Count > 2 && cl == "100")
-                    _commandList.Add(new AddDimmensionCommand(rightPoints, _view, DimmensionCommandType.RightDimmension, rightAttr));
+                    _commandList.Add(new AddDimmensionCommand(rightPoints, _view, CommandType.RightDimmension, rightAttr));
             }
         }
     }

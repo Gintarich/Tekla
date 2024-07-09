@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Tekla.Structures.Drawing;
 using ExtensionMethods;
 using Tekla.Structures.Model;
+using DimmentionMaker.Managers;
 
 namespace DimmentionMaker
 {
@@ -18,12 +19,8 @@ namespace DimmentionMaker
         static void Main(string[] args)
         {
             FileGenerator.GenerateFilters();
-            List<ICommandCreator> cmdCreators = new List<ICommandCreator>
-            {
-                new FrontViewCommandCreator(),
-            };
-            DimmensionLineCreator dimCreator = new DimmensionLineCreator(cmdCreators);
-            dimCreator.Run();
+            var tieBeamDrawing = new TieBeamDrawingManager();
+            tieBeamDrawing.Execute();
             Console.ReadLine();
         }
     }

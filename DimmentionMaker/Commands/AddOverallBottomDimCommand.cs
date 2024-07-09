@@ -11,7 +11,7 @@ using Part = Tekla.Structures.Model.Part;
 
 namespace DimmentionMaker.Commands
 {
-    public class AddOverallBottomDimCommand : IDimmensionCommand
+    public class AddOverallBottomDimCommand : IDrawingCommand
     {
         private int _importance;
         private View _view;
@@ -39,9 +39,9 @@ namespace DimmentionMaker.Commands
             strDimSetHandler.CreateDimensionSet(_view, list1, new Vector(0, -1, 0), startOffset + baselineSpacing * index);
         }
 
-        public DimmensionCommandType GetCommandType()
+        public CommandType GetCommandType()
         {
-            return DimmensionCommandType.BottomDimmension;
+            return CommandType.BottomDimmension;
         }
 
         public int GetImportance()

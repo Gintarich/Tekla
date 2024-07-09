@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DimmentionMaker
+namespace DimmentionMaker.Interfaces
 {
-    public interface ICommandCreator
+    public interface IViewManager
     {
-        List<IDrawingCommand> CreateCommands();
+         void RunCommands();
     }
 }

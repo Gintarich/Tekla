@@ -12,7 +12,7 @@ using Part = Tekla.Structures.Model.Part;
 
 namespace DimmentionMaker.Commands
 {
-    public class AddOverallDimCommand : IDimmensionCommand
+    public class AddOverallDimCommand : IDrawingCommand
     {
         private Vector _dirrection;
         private View _view;
@@ -61,7 +61,7 @@ namespace DimmentionMaker.Commands
             strDimSetHandler.CreateDimensionSet(_view, list1, _dirrection, startOffset + baselineSpacing * index);
         }
 
-        public DimmensionCommandType GetCommandType()
+        public CommandType GetCommandType()
         {
             return Utils.GetDimCommandTypeFromDir(_dirrection);
         }

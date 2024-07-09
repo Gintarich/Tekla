@@ -21,7 +21,7 @@ namespace DimmentionMaker.Creators
         private readonly List<Vector> _directions;
         private readonly Assembly _assembly;
         private readonly View _view;
-        private List<IDimmensionCommand> _commandList = new List<IDimmensionCommand>();
+        private List<IDrawingCommand> _commandList = new List<IDrawingCommand>();
 
         public OpeningCommandCreator(List<string> openingName, List<Vector> directions, Assembly assembly, View view)
         {
@@ -32,7 +32,7 @@ namespace DimmentionMaker.Creators
             CreateCommands();
         }
 
-        public List<IDimmensionCommand> GetCommands() { return _commandList; }
+        public List<IDrawingCommand> GetCommands() { return _commandList; }
 
         private void CreateCommands()
         {

@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace DimmentionMaker.Models
 {
-    public class DimmensionLineCreator
+    public class CommandExecutor
     {
-        private DimmensionCommandQueue _commandQueue  = new DimmensionCommandQueue ();
-        public DimmensionLineCreator(List<ICommandCreator> commandCreators)
+        private CommandQueue _commandQueue  = new CommandQueue ();
+        public CommandExecutor(List<ICommandCreator> commandCreators)
         {
             foreach (var commandCreator in commandCreators)
             {
                 _commandQueue.AddRange(commandCreator.CreateCommands());
             }
-            _commandQueue.Sort();
         }
         public void Run()
         {

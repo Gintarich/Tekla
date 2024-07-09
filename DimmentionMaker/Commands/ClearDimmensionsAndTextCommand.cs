@@ -7,10 +7,10 @@ using Tekla.Structures.Drawing;
 
 namespace DimmentionMaker.Commands
 {
-    public class ClearDimmensionsCommand : IDimmensionCommand
+    public class ClearDimmensionsAndTextCommand : IDrawingCommand
     {
         private View _view;
-        public ClearDimmensionsCommand(View view)
+        public ClearDimmensionsAndTextCommand(View view)
         {
             _view = view;
         }
@@ -24,12 +24,17 @@ namespace DimmentionMaker.Commands
                     var set = obj as StraightDimensionSet;
                     set.Delete();
                 }
+                else if (obj is Text)
+                {
+                    var text = obj as Text;
+                    text.Delete();
+                }
             }
         }
 
-        public DimmensionCommandType GetCommandType()
+        public CommandType GetCommandType()
         {
-            return DimmensionCommandType.NotADimmension;
+            return CommandType.NotADimmension;
         }
 
         public int GetImportance()

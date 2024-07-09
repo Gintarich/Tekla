@@ -130,6 +130,18 @@ namespace ExtensionMethods
             return list;
         }
 
+        public static PointList FlattenZ(this PointList pts)
+        {
+            var list = new PointList();
+            foreach (var pt in pts)
+            {
+                var point = pt as Point;
+                point.Z = 0;
+                if(point != null && !list.Contains(point)) list.Add(point);
+            }
+            return list;
+        }
+
         #region SortingPointList
         private static void swap(this PointList list, int i, int j)
         {

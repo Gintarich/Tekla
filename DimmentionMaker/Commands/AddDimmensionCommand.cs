@@ -8,18 +8,18 @@ using Tekla.Structures.Drawing;
 
 namespace DimmentionMaker.Commands
 {
-    public class AddDimmensionCommand : IDimmensionCommand
+    public class AddDimmensionCommand : IDrawingCommand
     {
         private PointList _points;
         private View _view;
-        private DimmensionCommandType _type;
+        private CommandType _type;
         private int _importance;
         private StraightDimensionSet.StraightDimensionSetAttributes _attributes;
 
         public AddDimmensionCommand(
             PointList points,
             View view,
-            DimmensionCommandType type,
+            CommandType type,
             StraightDimensionSet.StraightDimensionSetAttributes attributes,
             int importance = 1)
         {
@@ -45,7 +45,7 @@ namespace DimmentionMaker.Commands
             t.Modify();
         }
 
-        public DimmensionCommandType GetCommandType()
+        public CommandType GetCommandType()
         {
             return _type;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DimmentionMaker
 {
-    public enum DimmensionCommandType
+    public enum CommandType
     {
         TopDimmension = 0,
         BottomDimmension = 1,
@@ -14,10 +14,10 @@ namespace DimmentionMaker
         RightDimmension = 3,
         NotADimmension = 4,
     }
-    public interface IDimmensionCommand
+    public interface IDrawingCommand
     {
         void Execute(int idx);
         int GetImportance();
-        DimmensionCommandType GetCommandType();
+        CommandType GetCommandType();
     }
 }

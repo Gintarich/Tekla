@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Tekla.Structures;
 using Tekla.Structures.Filtering;
 using Tekla.Structures.Filtering.Categories;
+using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 
@@ -14,6 +15,14 @@ namespace ExtensionMethods
 {
     public static class TeklaExtensionMethods
     {
+        public static bool IsParallel(this EdgeChamfer chamfer, Vector viewVector)
+        {
+            if (chamfer == null) return false;
+            var sp = chamfer.FirstEnd;
+            var ep = chamfer.SecondEnd;
+            var v = new Vector(ep - sp).GetNormal();
+            return Math.Abs(v.Dot(viewVector)) > 0.99;
+        }
 		public static List<Part> GetAllParts(this Model model, bool autoFetch)
         {
             //IMPORTANT!!!

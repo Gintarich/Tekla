@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using DimmentionMaker.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,50 +10,54 @@ using Tekla.Structures.Model;
 
 namespace DimmentionMaker.Models
 {
-    public class DimmensionCommandQueue
+    public class CommandQueue : ICommandQueue
     {
-        private List<IDimmensionCommand> _commands = new List<IDimmensionCommand>();
+        private List<IDrawingCommand> _commands = new List<IDrawingCommand>();
         private int _topLineCount;
         private int _bottomLineCount;
         private int _rightLineCount;
         private int _leftLineCount;
 
-        public void AddRange(List<IDimmensionCommand> commands)
+        public void AddRange(List<IDrawingCommand> commands)
         {
             _commands.AddRange(commands);
-        }
-        public void Sort()
-        {
-            _commands = _commands.OrderBy(x => x.GetImportance()).ToList();
-            foreach (var command in _commands)
-            {
-            }
+            Sort();
         }
 
-        internal void ExecuteCommands()
+        public void Add(IDrawingCommand command)
         {
-            foreach (IDimmensionCommand command in _commands)
+            _commands.Add(command);
+        }
+
+        private void Sort()
+        {
+            _commands = _commands.OrderBy(x => x.GetImportance()).ToList();
+        }
+
+        public void ExecuteCommands()
+        {
+            foreach (IDrawingCommand command in _commands)
             {
                 switch (command.GetCommandType())
                 {
-                    case DimmensionCommandType.TopDimmension:
+                    case CommandType.TopDimmension:
                         command.Execute(_topLineCount);
                         _topLineCount++;
                         break;
-                    case DimmensionCommandType.BottomDimmension:
+                    case CommandType.BottomDimmension:
                         command.Execute(_bottomLineCount);
                         _bottomLineCount++;
                         break;
-                    case DimmensionCommandType.LeftDimmension:
+                    case CommandType.LeftDimmension:
                         command.Execute(_leftLineCount);
                         _leftLineCount++;
                         break;
-                    case DimmensionCommandType.RightDimmension:
+                    case CommandType.RightDimmension:
                         command.Execute(_rightLineCount);
                         _rightLineCount++;
                         break;
                     default:
-                        command.Execute(0); 
+                        command.Execute(0);
                         break;
                 }
             }
