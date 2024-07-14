@@ -50,6 +50,19 @@ namespace ExtensionMethods
             }
             return list;
         }
+        public static List<T> FilterType<T>(this IEnumerator enumerator)
+        {
+            var list = new List<T>();
+            while(enumerator.MoveNext())
+            {
+                var current = enumerator.Current;
+                if (current is T)
+                {
+                    list.Add((T)current);
+                }
+            }
+            return list;
+        }
 
         //Filter properties --------------------------------------------------
         public static List<Part> GetParts(this Model model, bool autoFetch)

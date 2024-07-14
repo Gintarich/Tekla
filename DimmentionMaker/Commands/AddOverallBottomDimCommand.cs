@@ -16,7 +16,7 @@ namespace DimmentionMaker.Commands
         private int _importance;
         private View _view;
         private AABB _aabb;
-        public AddOverallBottomDimCommand(View view, AABB mainPartBounds)
+        public AddOverallBottomDimCommand(View view, AABB mainPartBounds, StraightDimensionSet.StraightDimensionSetAttributes attributs)
         {
             _view = view; 
             _importance = 10;

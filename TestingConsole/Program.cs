@@ -1,6 +1,12 @@
 ﻿using System.IO;
 using System.Threading;
 using Tekla.Structures.Model.Operations;
+using Tekla.Structures.Geometry3d;
+using Tekla.Structures.Drawing;
+using Tekla.Structures.Model;
+using ExtensionMethods;
+using System.Linq;
+
 
 namespace TestingConsole
 {
@@ -8,6 +14,7 @@ namespace TestingConsole
     {
         static void Main(string[] args)
         {
+            TestDimmension();
         }
         public static void DisplayReport(string path)
         {
@@ -53,6 +60,19 @@ namespace TestingConsole
                         return false;
                 }
             }
+        }
+        public static void TestDimmension()
+        {
+            var dh = new DrawingHandler();
+            var view = dh.GetActiveDrawing().GetSheet().GetAllViews().FilterType<View>().Where(x => x.Name == "C").FirstOrDefault();
+            PointList points = new PointList()
+            {
+                new Point(0,-100,0),
+                new Point(6330,-100,0),
+            };
+            var strDimSetHandler = new StraightDimensionSetHandler();
+            //Insert dim lines
+            strDimSetHandler.CreateDimensionSet(view, points, new Vector(0, -1, 0), 200);
         }
 
     }

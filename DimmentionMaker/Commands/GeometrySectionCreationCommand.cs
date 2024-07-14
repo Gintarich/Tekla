@@ -29,10 +29,15 @@ namespace DimmentionMaker.Commands
             SectionMark sectionMark = null;
             View.ViewAttributes attr = new View.ViewAttributes();
             attr.LoadAttributes("standard");
+            attr.Scale = _frontView.Attributes.Scale;
             SectionMark.SectionMarkAttributes sectionMarkAttributes = new SectionMark.SectionMarkAttributes();
             sectionMarkAttributes.LoadAttributes("standard");
-            View.CreateSectionView(_frontView, _startPoint, _endPoint, _insertionPoint, 200, 200, attr, sectionMarkAttributes,
+            var test = View.CreateSectionView(_frontView, _startPoint, _endPoint, _insertionPoint, 200, 200, attr, sectionMarkAttributes,
                 out generatedView, out sectionMark);
+            GeoSectionTypeManager.SetSectionType(generatedView);
+            generatedView.Modify();
+            var succ = generatedView.GetDrawing().CommitChanges();
+            if(!succ) Console.WriteLine("WTF");
         }
 
         public CommandType GetCommandType()
@@ -42,7 +47,7 @@ namespace DimmentionMaker.Commands
 
         public int GetImportance()
         {
-            return 99;
+            return 2;
         }
     }
 }

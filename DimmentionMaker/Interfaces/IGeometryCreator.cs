@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DimmentionMaker.Interfaces
 {
-    public interface IViewManager
+    public interface IViewCreator
     {
-         void RunCommands();
+        void RunCommands(); 
     }
 }

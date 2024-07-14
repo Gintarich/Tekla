@@ -32,37 +32,39 @@ namespace ExtensionMethods
             PointList pList = new PointList();
             if (dir == new Vector(0, 1, 0))
             {
-                Func<Point, Point, bool> isXLargerAndYSmaller = (p1, p2) => 
+                Func<Point, Point, bool> isXLargerAndYSmaller = (p1, p2) =>
                 {
                     if (p1.X == p2.X) return p1.Y < p2.Y;
                     else return p1.X > p2.X;
                 };
 
-                list.Sort((p1, p2) => p1.X == p2.X ? p1.Y < p2.Y : p1.X > p2.X) ;
+                list.Sort((p1, p2) => p1.X == p2.X ? p1.Y < p2.Y : p1.X > p2.X);
                 pList.Add(list[0]);
                 for (int i = 1; i < list.Count; i++)
                 {
                     if (!(list[i].X == list[i - 1].X)) pList.Add(list[i]);
                 }
+                pList.Sort((p1, p2) => p1.Y < p2.Y);
             }
             else if (dir == new Vector(0, -1, 0))
             {
-                Func<Point, Point, bool> isXLargerAndYLarger = (p1, p2) => 
+                Func<Point, Point, bool> isXLargerAndYLarger = (p1, p2) =>
                 {
                     if (p1.X == p2.X) return p1.Y > p2.Y;
                     else return p1.X > p2.X;
                 };
-               
+
                 list.Sort(isXLargerAndYLarger);
                 pList.Add(list[0]);
                 for (int i = 1; i < list.Count; i++)
                 {
                     if (!(list[i].X == list[i - 1].X)) pList.Add(list[i]);
                 }
+                pList.Sort((p1, p2) => p1.Y > p2.Y);
             }
-            else if(dir == new Vector(1, 0, 0))
+            else if (dir == new Vector(1, 0, 0))
             {
-                Func<Point, Point, bool> isYLargerAndXSmaller = (p1, p2) => 
+                Func<Point, Point, bool> isYLargerAndXSmaller = (p1, p2) =>
                 {
                     if (p1.Y == p2.Y) return p1.X < p2.X;
                     else return p1.Y > p2.Y;
@@ -74,10 +76,11 @@ namespace ExtensionMethods
                 {
                     if (!(list[i].Y == list[i - 1].Y)) pList.Add(list[i]);
                 }
+                pList.Sort((p1, p2) => p1.X < p2.X);
             }
             else
             {
-                Func<Point, Point, bool> isYLargerAndXLarger = (p1, p2) => 
+                Func<Point, Point, bool> isYLargerAndXLarger = (p1, p2) =>
                 {
                     if (p1.Y == p2.Y) return p1.X > p2.X;
                     else return p1.Y > p2.Y;
@@ -89,6 +92,7 @@ namespace ExtensionMethods
                 {
                     if (!(list[i].Y == list[i - 1].Y)) pList.Add(list[i]);
                 }
+                pList.Sort((p1, p2) => p1.X > p2.X);
             }
             return pList;
         }
@@ -100,11 +104,11 @@ namespace ExtensionMethods
             while (edges.MoveNext())
             {
                 var edge = edges.Current as Edge;
-                if(edge is null ) continue;
+                if (edge is null) continue;
                 var sp = edge.StartPoint;
-                if(!points.Contains(sp)) points.Add(sp);
+                if (!points.Contains(sp)) points.Add(sp);
                 var ep = edge.EndPoint;
-                if(!points.Contains(ep)) points.Add(ep);
+                if (!points.Contains(ep)) points.Add(ep);
             }
             return points;
         }
@@ -114,12 +118,12 @@ namespace ExtensionMethods
             PointList points = new PointList();
             foreach (var solid in solids)
             {
-                if(solid is null) continue;
+                if (solid is null) continue;
                 points.AddRange(solid.GetPointList());
             }
             return points;
         }
-        
+
         public static PointList GetPointList(this IEnumerable<Point> points)
         {
             PointList list = new PointList();
@@ -137,7 +141,7 @@ namespace ExtensionMethods
             {
                 var point = pt as Point;
                 point.Z = 0;
-                if(point != null && !list.Contains(point)) list.Add(point);
+                if (point != null && !list.Contains(point)) list.Add(point);
             }
             return list;
         }
@@ -193,9 +197,9 @@ namespace ExtensionMethods
             while (edges.MoveNext())
             {
                 var start = (edges.Current as Edge).StartPoint;
-                if(!points.Contains(start)) points.Add(start);
+                if (!points.Contains(start)) points.Add(start);
                 var end = (edges.Current as Edge).EndPoint;
-                if(!points.Contains(end)) points.Add(end);
+                if (!points.Contains(end)) points.Add(end);
             }
             foreach (var point in points)
             {
@@ -203,7 +207,17 @@ namespace ExtensionMethods
                 Console.WriteLine("-------------------------------------");
             }
         }
-
+        public static OBB GetOBB(this AABB box)
+        {
+            var center = box.GetCenterPoint();
+            var xAxis = new Vector(1, 0, 0);
+            var yAxis = new Vector(0, 1, 0);
+            var zAxis = new Vector(0, 0, 1);
+            var extentx = (box.MaxPoint.X - box.MinPoint.X) / 2;
+            var extenty = (box.MaxPoint.Y - box.MinPoint.Y) / 2;
+            var extentz = (box.MaxPoint.Z - box.MinPoint.Z) / 2;
+            return new OBB(center, xAxis, yAxis, zAxis, extentx, extenty, extentz);
+        }
         public static AABB GetTop(this AABB box)
         {
             var halfHeight = (box.MaxPoint.Y + box.MinPoint.Y) / 2;
@@ -239,6 +253,56 @@ namespace ExtensionMethods
             if (p == null) return null;
             var solid = p.GetSolid();
             return new AABB(solid.MinimumPoint, solid.MaximumPoint);
+        }
+        public static AABB Scale(this AABB box, double factor)
+        {
+            var minPt = new Point(box.MinPoint.X * factor, box.MinPoint.Y * factor, box.MinPoint.Z * factor);
+            var maxPt = new Point(box.MaxPoint.X * factor, box.MaxPoint.Y * factor, box.MaxPoint.Z * factor);
+            return new AABB(minPt, maxPt);
+        }
+        public static AABB Move(this AABB box, Vector translation)
+        {
+            return new AABB(box.MinPoint + translation, box.MaxPoint + translation);
+        }
+
+        public static PointList Intersection(this AABB box, Solid sold)
+        {
+            var points = new PointList();
+            OBB obox = box.GetOBB();
+            var edges = sold.GetEdgeEnumerator();
+            while (edges.MoveNext())
+            {
+                Edge edge = edges.Current as Edge;
+                LineSegment segment = new LineSegment(edge.StartPoint, edge.EndPoint);
+                if (box.IsInside(segment))
+                {
+                    var newSegment = obox.IntersectionWith(segment);
+                    if (newSegment != null)
+                    {
+                        var sp = newSegment.StartPoint;
+                        var ep = newSegment.EndPoint;
+                       if(!points.Contains(sp)) points.Add(sp);
+                       if(!points.Contains(sp)) points.Add(sp);
+                    }
+                    else
+                    {
+                        var sp = segment.StartPoint;
+                        var ep = segment.EndPoint;
+                       if(!points.Contains(sp)) points.Add(sp);
+                       if(!points.Contains(sp)) points.Add(sp);
+                    }
+                }
+                else
+                {
+                    var newSegment = obox.IntersectionWith(segment);
+                    if (newSegment is null || newSegment.Length() < 1) continue;
+
+                    points.Add(segment.StartPoint);
+                    points.Add(segment.EndPoint);
+                }
+            }
+
+            return points;
         }
 
     }

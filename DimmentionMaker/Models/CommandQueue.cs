@@ -20,6 +20,7 @@ namespace DimmentionMaker.Models
 
         public void AddRange(List<IDrawingCommand> commands)
         {
+            if (commands is null) return;
             _commands.AddRange(commands);
             Sort();
         }

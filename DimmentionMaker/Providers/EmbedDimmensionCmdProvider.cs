@@ -14,16 +14,16 @@ using Tekla.Structures.RemotingHelper;
 using Part = Tekla.Structures.Model.Part;
 using TSD = Tekla.Structures.Drawing;
 
-namespace DimmentionMaker.Creators
+namespace DimmentionMaker.Providers
 {
-    public class EmbedDimmensionCommandCreator
+    public class EmbedDimmensionCmdProvider
     {
         private Assembly _assembly;
         private View _view;
         private AABB _aabb;
         private List<IDrawingCommand> _commandList = new List<IDrawingCommand>();
 
-        public EmbedDimmensionCommandCreator(Assembly assembly, View view)
+        public EmbedDimmensionCmdProvider(Assembly assembly, View view)
         {
             _assembly = assembly;
             _view = view;

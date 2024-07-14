@@ -21,7 +21,7 @@ namespace DimmentionMaker
             FileGenerator.GenerateFilters();
             var tieBeamDrawing = new TieBeamDrawingManager();
             tieBeamDrawing.Execute();
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }

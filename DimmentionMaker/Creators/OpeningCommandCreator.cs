@@ -36,7 +36,8 @@ namespace DimmentionMaker.Creators
 
         private void CreateCommands()
         {
-            var id = _assembly.GetMainPart().Identifier;
+            var mp = _assembly.GetMainPart();
+            var id = mp.Identifier;
             var obj = _view.GetModelObjects(id).ToAList<TSD.ModelObject>().First();
             var viewBox = _view.RestrictionBox;
             //Find Boolean parts using opening name
@@ -47,19 +48,24 @@ namespace DimmentionMaker.Creators
                 .ToAList<BooleanPart>();
             //Check if boolean part is in view box
             var filteredParts = booleanParts.Where(x => viewBox.Collide(x.OperativePart.GetBox())).Select(x => x.OperativePart.GetSolid());
-            var pointList = filteredParts.GetPointList();
+            //var pointList = filteredParts.GetPointList();
             //Add corner points
-            pointList.AddRange((_assembly.GetMainPart() as Part)
-                .GetBox()
-                .GetCornerPoints()
-                .GetPointList());
+
+            //pointList.AddRange((_assembly.GetMainPart() as Part)
+            //.GetBox()
+            //.GetCornerPoints()
+            //.GetPointList());
+
+            var solid = (mp as Part).GetSolid(Solid.SolidCreationTypeEnum.NORMAL_WITHOUT_EDGECHAMFERS);
+            var pointList = viewBox.Intersection(solid);
             //Create commands based on dirrections
             foreach (var dir in _directions)
             {
+                var cleanPts = pointList.RemoveRedundant(dir);
                 var command = new AddDimmensionCommand(
                     pointList.RemoveRedundant(dir),
                     _view,
-                    Utils.GetDimCommandTypeFromDir(dir), 
+                    Utils.GetDimCommandTypeFromDir(dir),
                     AttributeProvider.GetAttribute(obj));
                 _commandList.Add(command);
             }

@@ -19,6 +19,7 @@ namespace DimmentionMaker.Commands
         }
         public void Execute(int idx)
         {
+            var newtp = new TransformationPlane();
             _drawing.CommitChanges();
             new Model().GetWorkPlaneHandler().SetCurrentTransformationPlane(_transformationPlane);
         }

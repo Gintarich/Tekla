@@ -14,15 +14,15 @@ using Tekla.Structures.Model;
 using EdgeChamfer = Tekla.Structures.Model.EdgeChamfer;
 using Part = Tekla.Structures.Model.Part;
 
-namespace DimmentionMaker.Creators
+namespace DimmentionMaker.Providers
 {
-    public class ChamferCommandCreator
+    public class ChamferCmdProvider
     {
         private List<IDrawingCommand> _commands = new List<IDrawingCommand>();
         private readonly Assembly _assembly;
         private readonly View _view;
 
-        public ChamferCommandCreator(Assembly assembly, View view)
+        public ChamferCmdProvider(Assembly assembly, View view)
         {
             _assembly = assembly;
             _view = view;
