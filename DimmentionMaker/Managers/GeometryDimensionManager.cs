@@ -34,6 +34,7 @@ namespace DimmentionMaker.Managers
             var sectionViews = drawing.GetSheet()
                 .GetViews()
                 .ToAList<View>()
+                .Where(v => v.ViewType == View.ViewTypes.SectionView)
                 .Where(v => GeoSectionTypeManager.GetSectionType(v) == SectionType.Geometry);
             foreach (var sectionView in sectionViews)
             {
@@ -42,11 +43,8 @@ namespace DimmentionMaker.Managers
                 comQ.Add(new ClearDimmensionsAndTextCommand(sectionView));
                 comQ.Add(new AddOverallDimCommand(sectionView, _assembly, Dirrections.Bottom));
                 comQ.Add(new AddOverallDimCommand(sectionView, _assembly, Dirrections.Left));
-                comQ.AddRange(new OpeningCommandCreator(
-                    new List<string> { "LIFTING CUT", "BEAM" },
-                    new List<Vector> { Dirrections.Top, Dirrections.Left },
-                    _assembly,
-                    sectionView).GetCommands());
+                comQ.AddRange(new OpeningCmdAutoCreator( new List<Vector> { Dirrections.Top, Dirrections.Left },
+                    _assembly, sectionView).GetCommands());
                 comQ.AddRange(new ChamferCmdProvider(_assembly, sectionView).GetCommands());
                 comQ.Add(new CommitDrawingChangesCommand(_drawing));
                 sectionView.ReleaseWorkPlane();

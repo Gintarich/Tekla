@@ -69,18 +69,30 @@
     <Compile Include="Commands\AddDimmensionCommand.cs" />
     <Compile Include="Commands\AddOverallDimCommand.cs" />
     <Compile Include="Commands\AddOverallBottomDimCommand.cs" />
+    <Compile Include="Commands\ClearAllViewsCommand.cs" />
     <Compile Include="Commands\ClearDimmensionsAndTextCommand.cs" />
     <Compile Include="Commands\ClearGeometrySectionsCommand.cs" />
+    <Compile Include="Commands\CreateFrontViewCmd.cs" />
     <Compile Include="Commands\GeometrySectionCreationCommand.cs" />
     <Compile Include="Commands\PrintValueCommand.cs" />
+    <Compile Include="Commands\RebarSectionCreationCmd.cs" />
     <Compile Include="Commands\SetCoordinateSystemCommand.cs" />
+    <Compile Include="Creators\FrontViewCreator.cs" />
     <Compile Include="Creators\GeoSectionCreator.cs" />
+    <Compile Include="Creators\OpeningCmdAutoCreator.cs" />
+    <Compile Include="Managers\RebarSectionCreator.cs" />
+    <Compile Include="Models\TIeBeamConfig.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Providers\ChamferCmdProvider.cs" />
     <Compile Include="Providers\EmbedDimmensionCmdProvider.cs" />
     <Compile Include="Interfaces\IGeometryCreator.cs" />
     <Compile Include="Managers\FrontViewAnotationManager.cs" />
     <Compile Include="Commands\ResetCoordinateSystemCommand.cs" />
-    <Compile Include="Creators\OpeningCommandCreator.cs" />
+    <Compile Include="Creators\OpeningCmdByNameCreator.cs" />
     <Compile Include="Interfaces\ICommandCreator.cs" />
     <Compile Include="Interfaces\IDrawingCommand.cs" />
     <Compile Include="Interfaces\IAnotationManager.cs" />
@@ -98,17 +110,23 @@
     <Compile Include="Models\CreationType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\RebarSectionCmdProvider.cs" />
     <Compile Include="Utils\GeoSectionTypeManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <Compile Include="Commands\CommitDrawingChangesCommand.cs" />
+    <None Include="FRONT_GEO.vi" />
+    <None Include="FRONT_REINF_V1.vi" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\element_catalog_cross_section.bmp" />
     <Content Include="Resources\element_catalog_cross_section_sketch.bmp" />
     <Content Include="Resources\element_catalog_cross_section_user.bmp" />
+    <None Include="Resources\REINF_VERT_SEC.txt" />
+    <None Include="Resources\REIFN_FRONT.txt" />
+    <None Include="Resources\GEO_FRONT.txt" />
     <Content Include="Resources\prtyp_tree_1.bmp" />
     <Content Include="Resources\prtyp_tree_10.bmp" />
     <Content Include="Resources\prtyp_tree_11.bmp" />
@@ -129,6 +147,11 @@
       <Name>ExtensionMethods</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

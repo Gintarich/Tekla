@@ -19,6 +19,7 @@ namespace DimmentionMaker
         static void Main(string[] args)
         {
             FileGenerator.GenerateFilters();
+            FileGenerator.GenerateViewAttributes();
             var tieBeamDrawing = new TieBeamDrawingManager();
             tieBeamDrawing.Execute();
             //Console.ReadLine();

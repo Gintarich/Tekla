@@ -18,6 +18,12 @@ namespace AnotherConsole
         static void Main(string[] args)
         {
             var dh = new DrawingHandler();
+            var picker = dh.GetPicker();
+            var (one, two) = picker.PickObject("Pick");
+        }
+        public static void Smth()
+        {
+            var dh = new DrawingHandler();
             var view = dh.GetActiveDrawing().GetSheet().GetAllViews().FilterType<View>().Where(x => x.Name == "B").FirstOrDefault();
             view.SetWorkPlane();
             var drawing = dh.GetActiveDrawing() as CastUnitDrawing;

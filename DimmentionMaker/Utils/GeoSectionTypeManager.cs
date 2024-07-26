@@ -16,20 +16,24 @@ namespace DimmentionMaker
 
     static class GeoSectionTypeManager
     {
-        static readonly string _propName = "SectionType";
-        static readonly string _type = "GeometrySection";
-
-        static public void SetSectionType(View view)
+        private static readonly string _propName = "SectionType";
+        private static readonly Dictionary<SectionType, string> _map = new Dictionary<SectionType, string>()
         {
-            view.SetUserProperty(_propName, _type);
+            {SectionType.Geometry, "GeometrySection" },
+            {SectionType.Reinforcement, "ReinforcementSection" },
+            {SectionType.Unknown, "Unknown" },
+        };
+
+        static public void SetSectionType(View view, SectionType type)
+        {
+            view.SetUserProperty(_propName, _map[type]);
             view.Modify();
         }
         static public SectionType GetSectionType(View view)
         {
             string s = "";
             view.GetUserProperty(_propName, ref s);
-            if (s == _type) return SectionType.Geometry;
-            else return SectionType.Unknown;
+            return _map.FirstOrDefault(x => x.Value == s).Key;
         }
     }
 }

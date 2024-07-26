@@ -2,7 +2,7 @@
 using DimmentionMaker.Creators;
 using DimmentionMaker.Interfaces;
 using DimmentionMaker.Models;
-using Render;
+using DimmentionMaker.Providers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +13,15 @@ using Tekla.Structures.Model;
 
 namespace DimmentionMaker.Managers
 {
-    public class GeoSectionCreator : IViewCreator
+    internal class RebarSectionCreator : IViewCreator
     {
-
         private readonly ICommandQueue _commandQueue = new CommandQueue();
         private readonly Assembly _assembly;
         private readonly View _view;
         private readonly Drawing _drawing;
         private readonly List<CreationType> _creationTypes;
 
-        public GeoSectionCreator(Assembly assembly, View view, Drawing drawing)
+        public RebarSectionCreator(Assembly assembly, View view, Drawing drawing)
         {
             _assembly = assembly;
             _view = view;
@@ -36,21 +35,19 @@ namespace DimmentionMaker.Managers
             return new List<CreationType>
             {
                 new CreationType("WELDA", ViewCreationType.Horizontal,0),
-                new CreationType("NEO", ViewCreationType.Horizontal,0),
-                new CreationType("WELDA", ViewCreationType.Vertical,0),
-                new CreationType("LIFTING CUT", ViewCreationType.Vertical),
+                new CreationType("NEO", ViewCreationType.Vertical,0),
             };
         }
 
         private void SetupCommands()
         {
-            _commandQueue.Add(new ClearGeometrySectionsCommand(_drawing as CastUnitDrawing));
-            _commandQueue.AddRange(new GeoSectionCmdProvider(_creationTypes, _assembly, _view).GetCommands());
+            _commandQueue.AddRange(new RebarSectionCmdProvider(_creationTypes, _assembly, _view).GetCommands());
         }
 
         public void RunCommands()
         {
             _commandQueue.ExecuteCommands();
         }
+
     }
 }

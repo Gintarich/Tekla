@@ -46,16 +46,17 @@ namespace DimmentionMaker.Providers
             {
                 var ptSum = (chamfer.SecondEnd + chamfer.FirstEnd);
                 var midPt = new Point(ptSum.X / 2, ptSum.Y / 2, ptSum.Z / 2);
+                var viewBox = _view.RestrictionBox;
                 var box = _assembly.GetBox();
                 var botBox = box.GetBot();
                 var topBox = box.GetTop();
                 var scale = _view.Attributes.Scale;
-                if (botBox.IsInside(midPt))
+                if (botBox.IsInside(midPt) && viewBox.GetOBB().Intersects(new LineSegment(chamfer.FirstEnd,chamfer.SecondEnd)) )
                 {
                     midPt.Y -= 2 * scale;
                     _commands.Add(new AddChamferMarkCommand(_view, midPt));
                 }
-                if (topBox.IsInside(midPt))
+                if (topBox.IsInside(midPt) && viewBox.GetOBB().Intersects(new LineSegment(chamfer.FirstEnd,chamfer.SecondEnd)))
                 {
                     midPt.Y += 2 * scale;
                     _commands.Add(new AddChamferMarkCommand(_view, midPt));

@@ -20,6 +20,7 @@ namespace DimmentionMaker.Managers
         private View _view;
         private CastUnitDrawing _drawing;
         private Assembly _assembly;
+        private TieBeamConfig _config = TieBeamConfig.Instance;
 
         public FrontViewAnotationManager()
         {
@@ -32,7 +33,7 @@ namespace DimmentionMaker.Managers
             var dh = new DrawingHandler();
             _drawing = dh.GetActiveDrawing() as CastUnitDrawing;
             if (_drawing is null) Console.WriteLine("The script is supported for cast unit drawings");
-            _view = _drawing.GetSheet().GetAllViews().ToAList<View>().Where(x => x.Name == "VIRSSKATS").ToList().First();
+            _view = _drawing.GetSheet().GetAllViews().ToAList<View>().Where(x => x.Name == _config.GeoFrontViewName).ToList().First();
             var cuId = _drawing.CastUnitIdentifier;
             _assembly = (new Model().SelectModelObject(cuId) as Assembly);
 
@@ -51,9 +52,14 @@ namespace DimmentionMaker.Managers
             _commands.Add(new AddOverallDimCommand(_view, _assembly, Dirrections.Left));
             _commands.Add(new AddOverallDimCommand(_view, _assembly, Dirrections.Bottom));
             _commands.AddRange(new EmbedDimmensionCmdProvider(_assembly, _view).GetCommands());
-            _commands.AddRange(new OpeningCommandCreator(
+            _commands.AddRange(new OpeningCmdByNameCreator(
                 new List<string> { "LIFTING CUT" },
                 new List<Vector> { Dirrections.Top, Dirrections.Left },
+                _assembly,
+                _view).GetCommands());
+            _commands.AddRange(new OpeningCmdByNameCreator(
+                new List<string> {"BEAM"},
+                new List<Vector> { Dirrections.Top },
                 _assembly,
                 _view).GetCommands());
             _commands.AddRange(new ChamferCmdProvider(_assembly, _view).GetCommands());

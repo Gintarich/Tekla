@@ -1,22 +1,19 @@
 ﻿using DimmentionMaker.Commands;
-using DimmentionMaker.Interfaces;
 using DimmentionMaker.Models;
 using ExtensionMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Tekla.Structures.DialogInternal;
 using Tekla.Structures.Drawing;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Part = Tekla.Structures.Model.Part;
 
-namespace DimmentionMaker.Creators
+namespace DimmentionMaker.Providers
 {
-    public class GeoSectionCmdProvider
+    public class RebarSectionCmdProvider
     {
         private readonly List<IDrawingCommand> _commands = new List<IDrawingCommand>();
         private readonly List<CreationType> _creationTypes;
@@ -26,8 +23,9 @@ namespace DimmentionMaker.Creators
         private List<BooleanPart> _openings;
         private int _horCount = 0;
         private int _vertCount = 0;
+        private TieBeamConfig _config = TieBeamConfig.Instance;
 
-        public GeoSectionCmdProvider(List<CreationType> vc, Assembly assembly, View view)
+        public RebarSectionCmdProvider(List<CreationType> vc, Assembly assembly, View view)
         {
             _creationTypes = vc;
             _assembly = assembly;
@@ -66,7 +64,8 @@ namespace DimmentionMaker.Creators
                 var startPoint = new Point(box.MinPoint.X, location, 0);
                 var endPoint = new Point(box.MaxPoint.X, location, 0);
                 var placement = CalculateHorViewPlacement();
-                _commands.Add(new GeometrySectionCreationCommand(placement, _view, startPoint, endPoint));
+                placement.Y -= 20;
+                _commands.Add(new RebarSectionCreationCmd(placement, _view, startPoint, endPoint));
             }
             else
             {
@@ -74,7 +73,9 @@ namespace DimmentionMaker.Creators
                 var endPoint = new Point(location, box.MaxPoint.Y, 0);
                 var startPoint = new Point(location, box.MinPoint.Y, 0);
                 var placement = CalculateVertViewPlacement();
-                _commands.Add(new GeometrySectionCreationCommand(placement, _view, startPoint, endPoint));
+                placement.X += 10;
+                placement.Y -= 20;
+                _commands.Add(new RebarSectionCreationCmd(placement, _view, startPoint, endPoint, _config.ReinfSectionVerticalAttrName));
             }
         }
 
@@ -127,7 +128,7 @@ namespace DimmentionMaker.Creators
             var scaled = _view.RestrictionBox.Scale(scaleFactor).Move(new Vector(_view.Origin));
             var x = scaled.MaxPoint.X + startingOffset + step * _vertCount;
             _vertCount++;
-            return new Point(x,y,0);
+            return new Point(x, y, 0);
         }
 
         private Point CalculateHorViewPlacement()
@@ -140,8 +141,9 @@ namespace DimmentionMaker.Creators
             var scaled = _view.RestrictionBox.Scale(scaleFactor).Move(new Vector(_view.Origin));
             var y = scaled.MinPoint.Y - startingOffset - step * _horCount;
             _horCount++;
-            return new Point(x,y,0);
+            return new Point(x, y, 0);
         }
+
         public List<IDrawingCommand> GetCommands() { return _commands; }
     }
 }
