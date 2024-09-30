@@ -35,8 +35,5 @@ namespace Specifikacijas.Clases
 
         public double ElementaSvarsKopa => ElementaSvars * ElementuSkaits;
         public double ElementaLaukumsKopa => ElementaLaukums * ElementuSkaits;
-
-
-
     }
 }
