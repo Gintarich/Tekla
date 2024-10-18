@@ -7,7 +7,7 @@ using Tekla.Structures.Dialog.UIControls;
 using Tekla.Structures.Drawing;
 using Tekla.Structures.Geometry3d;
 
-namespace DimmentionMaker.Commands
+namespace DimMakerLibrary.Commands
 {
     public class GeometrySectionCreationCommand : IDrawingCommand
     {

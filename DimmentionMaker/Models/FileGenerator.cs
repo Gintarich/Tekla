@@ -12,7 +12,7 @@ using Tekla.Structures.Model;
 using Tekla.Structures;
 using System.Resources;
 
-namespace DimmentionMaker.Models
+namespace DimMakerLibrary.Models
 {
     public static class FileGenerator
     {

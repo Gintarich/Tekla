@@ -9,7 +9,7 @@ using ExtensionMethods;
 using TSD = Tekla.Structures.Drawing;
 using Tekla.Structures.Model;
 using Part = Tekla.Structures.Model.Part;
-using DimmentionMaker.Models;
+using DimMakerLibrary.Models;
 
 namespace AnotherConsole
 {

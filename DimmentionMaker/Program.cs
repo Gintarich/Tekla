@@ -1,6 +1,6 @@
-﻿using DimmentionMaker.Commands;
-using DimmentionMaker.Creators;
-using DimmentionMaker.Models;
+﻿using DimMakerLibrary.Commands;
+using DimMakerLibrary.Creators;
+using DimMakerLibrary.Models;
 using Tekla.Structures.Geometry3d;
 using System;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using Tekla.Structures.Drawing;
 using ExtensionMethods;
 using Tekla.Structures.Model;
-using DimmentionMaker.Managers;
+using DimMakerLibrary.Managers;
 
-namespace DimmentionMaker
+namespace DimMakerLibrary
 {
     internal class Program
     {

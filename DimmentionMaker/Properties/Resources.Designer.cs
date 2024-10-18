@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DimmentionMaker.Properties {
+namespace DimMakerLibrary.Properties {
     using System;
     
     

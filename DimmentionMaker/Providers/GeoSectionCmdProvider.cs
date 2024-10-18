@@ -1,6 +1,6 @@
-﻿using DimmentionMaker.Commands;
-using DimmentionMaker.Interfaces;
-using DimmentionMaker.Models;
+﻿using DimMakerLibrary.Commands;
+using DimMakerLibrary.Interfaces;
+using DimMakerLibrary.Models;
 using ExtensionMethods;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Part = Tekla.Structures.Model.Part;
 
-namespace DimmentionMaker.Creators
+namespace DimMakerLibrary.Creators
 {
     public class GeoSectionCmdProvider
     {
